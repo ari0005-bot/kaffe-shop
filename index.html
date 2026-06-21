@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATMA KOFFIE - Secangkir Kopi, Sejuta Cerita</title>
+    
+    <!-- Google Fonts: Montserrat (Weights: 300, 400, 500, 600, 700, 800) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Embedded Premium CSS -->
+    <style>
+        /* --- ROOT VARIABLES & RESET --- */
+        :root {
+            --primary-coffee: #4E342E;
+            --bg-cream: #F5F1EA;
+            --beige: #D7CCC8;
+            --accent-gold: #C8A165;
+            --text-dark: #2C1D1A;
+            --text-light: #F5F1EA;
+            --white: #FFFFFF;
+            --shadow-soft: 0 10px 30px rgba(78, 52, 46, 0.05);
+            --shadow-hover: 0 20px 40px rgba(78, 52, 46, 0.12);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- UTILITIES & LAYOUT --- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-coffee);
+            margin-bottom: 16px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--white);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(200, 161, 101, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-coffee);
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background-color: var(--primary-coffee);
+            color: var(--white);
+            border: 2px solid var(--primary-coffee);
+        }
+
+        .btn-dark:hover {
+            background-color: transparent;
+            color: var(--primary-coffee);
+            transform: translateY(-3px);
+        }
+
+        /* ================= 1. NAVBAR ================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-coffee);
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 0.8rem;
+        }
+
+        /* ================= 2. HERO SECTION ================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 29, 26, 0.65), rgba(44, 29, 26, 0.75)), 
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: rgba(245, 241, 2ea, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* ================= 3. ABOUT SECTION ================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent-gold);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-coffee);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #665552;
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        /* ================= 4. WHY CHOOSE US ================= */
+        .bg-beige-section {
+            background-color: rgba(213, 204, 200, 0.25);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(78, 52, 46, 0.03);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-coffee);
+            margin-bottom: 14px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #776663;
+        }
+
+        /* ================= 5. SIGNATURE MENU ================= */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .menu-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .menu-info {
+            padding: 24px;
+        }
+
+        .menu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .menu-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-coffee);
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .menu-info p {
+            font-size: 0.88rem;
+            color: #776663;
+            margin-bottom: 20px;
+            height: 44px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-menu {
+            width: 100%;
+            padding: 12px;
+        }
+
+        /* ================= 6. GALLERY SECTION ================= */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 280px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(78, 52, 46, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+            transform: scale(0.8);
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ================= 7. TESTIMONIAL SECTION ================= */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testi-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            border-bottom: 4px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .testi-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: rgba(200, 161, 101, 0.2);
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .testi-card p {
+            font-size: 0.95rem;
+            color: #554441;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .client-info h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-coffee);
+        }
+
+        /* ================= 8. CTA SECTION ================= */
+        .cta-section {
+            background: linear-gradient(rgba(78, 52, 46, 0.85), rgba(78, 52, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            text-align: center;
+            color: var(--text-light);
+            padding: 120px 0;
+        }
+
+        .cta-content max-width: 650px; {
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* ================= 9. FOOTER ================= */
+       /* ================= 9. FOOTER ================= */
+        .footer {
+            background-color: var(--primary-coffee);
+            color: #FFFFFF; /* Mengubah teks utama footer menjadi warna putih */
+            padding: 80px 0 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 24px;
+            color: #FFFFFF; /* Mengubah deskripsi brand menjadi putih */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1); /* Sedikit lebih terang agar kontras dengan putih */
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-coffee);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            color: #FFFFFF; /* Mengubah teks list statis menjadi putih */
+        }
+
+        .footer-links a {
+            color: #FFFFFF; /* Mengubah warna menu tautan menjadi putih */
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold); /* Tetap memberikan efek emas saat di-hover */
+            padding-left: 5px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .map-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(1) invert(0.9) contrast(1.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15); /* Garis pembatas sedikit lebih terang */
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8); /* Hak cipta putih dengan sedikit transparansi agar elegan */
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.05);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-coffee);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(245, 241, 2ea, 0.7);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .map-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(1) invert(0.9) contrast(1.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* ================= MEDIA QUERIES (RESPONSIVE) ================= */
+        @media (max-width: 1024px) {
+            .cards-grid, .menu-grid, .testi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu, .nav-cta-box { display: none; } /* Mobile nav implementation would use mobile-toggle */
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .cards-grid, .menu-grid, .testi-grid, .gallery-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; gap: 12px; padding: 0 20px; }
+            .section-title { font-size: 2rem; }
+            .about-image img { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= 1. NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-mug-saucer"></i> ATMA KOFFIE
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#why-us" class="nav-link">Keunggulan</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                <li><a href="#testi" class="nav-link">Testimoni</a></li>
+                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="nav-cta-box">
+                <a href="https://wa.me/+62 882-8919-3831" target="_blank" class="btn btn-gold nav-cta">Pesan Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= 2. HERO SECTION ================= -->
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Secangkir Kopi,<br>Sejuta Cerita</h1>
+            <p>Nikmati kopi pilihan dengan suasana hangat yang membuat setiap momen terasa lebih berarti.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-gold">Lihat Menu</a>
+                <a href="https://wa.me/+62 882-8919-3831?text=Halo%20Atma%20Koffie,%20saya%20ingin%20reservasi%20meja" target="_blank" class="btn btn-outline">Reservasi Meja</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 3. ABOUT SECTION ================= -->
+    <section id="about" class="section-padding">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="kopi.jpeg" alt="Biji Kopi Atma">
+            </div>
+            <div class="about-text">
+                <h3>Sedikit Kisah Dari Atma</h3>
+                <p>Berdiri sejak komitmen awal kami untuk menghadirkan jiwa (Atma) ke dalam setiap tetes seduhan. Kami percaya bahwa kedai kopi bukan sekadar tempat singgah, melainkan sebuah ruang di mana ide lahir, persahabatan dipererat, dan ketenangan ditemukan.</p>
+                <p>Setiap biji kopi yang kami pilih melewati proses seleksi ketat dari petani lokal terbaik, disangrai dengan presisi, dan disajikan dengan penuh ketulusan oleh barista andalan kami.</p>
+                <a href="#why-us" class="btn btn-dark">Kenali Kami Lebih Dekat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. WHY CHOOSE US SECTION ================= -->
+    <section id="why-us" class="section-padding bg-beige-section">
+        <div class="container text-center">
+            <h2 class="section-title">Mengapa Atma Koffie?</h2>
+            <p class="section-subtitle">Kenyamanan & Kualitas Adalah Prioritas</p>
+            
+            <div class="cards-grid">
+                <!-- Kartu 1 -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h4>Biji Kopi Berkualitas</h4>
+                    <p>100% menggunakan biji kopi arabika & robusta pilihan Nusantara yang didatangkan langsung secara etis dari perkebunan terbaik.</p>
+                </div>
+                <!-- Kartu 2 -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h4>Barista Profesional</h4>
+                    <p>Seduhan dibuat dengan penuh presisi, pengetahuan mendalam, dan teknik modern oleh tim barista bersertifikasi kami.</p>
+                </div>
+                <!-- Kartu 3 -->
+                <div class="feature-card">
+                    <i class="fa-solid fa-couch"></i>
+                    <h4>Tempat Nyaman & Estetik</h4>
+                    <p>Interior modern industrial bernuansa hangat, ramah WFH dengan internet berkecepatan tinggi, serta sudut foto estetik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. SIGNATURE MENU SECTION ================= -->
+    <section id="menu" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Menu Andalan Kami</h2>
+            <p class="section-subtitle">Eksplorasi Rasa Unik Penuh Karakter</p>
+            
+            <div class="menu-grid">
+                <!-- Menu 1 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://myxtiq.ie/wp-content/uploads/2023/11/single-expresso.jpg" alt="Espresso">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Espresso</h4>
+                            <span class="menu-price">Rp 22k</span>
+                        </div>
+                        <p>Ekstraksi murni biji kopi single origin dengan crema tebal dan aroma intens berkarakter bold.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Espresso" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+                <!-- Menu 2 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=500&auto=format&fit=crop" alt="Cappuccino">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Cappuccino</h4>
+                            <span class="menu-price">Rp 28k</span>
+                        </div>
+                        <p>Keseimbangan sempurna antara rich espresso, susu steamed, dan lapisan foam tebal yang lembut.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Cappuccino" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+                <!-- Menu 3 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=500&auto=format&fit=crop" alt="Cafe Latte">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Cafe Latte</h4>
+                            <span class="menu-price">Rp 30k</span>
+                        </div>
+                        <p>Sentuhan susu yang lebih dominan berpadu dengan espresso premium untuk rasa yang light & creamy.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Cafe%20Latte" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+                <!-- Menu 4 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=500&auto=format&fit=crop" alt="Caramel Macchiato">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Caramel Macchiato</h4>
+                            <span class="menu-price">Rp 35k</span>
+                        </div>
+                        <p>Paduan manis sirup vanilla, susu, espresso, yang dikunci dengan siraman saus karamel mewah di atasnya.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Caramel%20Macchiato" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+                <!-- Menu 5 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=500&auto=format&fit=crop" alt="Matcha Breeze">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Matcha Breeze</h4>
+                            <span class="menu-price">Rp 32k</span>
+                        </div>
+                        <p>Minuman non-kopi menggunakan matcha artisan murni asal Jepang yang menyegarkan hari Anda.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Matcha%20Breeze" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+                <!-- Menu 6 -->
+                <div class="menu-card">
+                    <div class="menu-img-container">
+                        <img src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?q=80&w=500&auto=format&fit=crop" alt="Kusuma">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-meta">
+                            <h4>Kusuma (Signature)</h4>
+                            <span class="menu-price">Rp 38k</span>
+                        </div>
+                        <p>Kopi susu rahasia Atma dengan infus esens bunga lokal yang manis, wangi floral, dan unik.</p>
+                        <a href="https://wa.me/+62 882-8919-3831?text=Saya%20mau%20pesan%20Kusuma%20Signature" target="_blank" class="btn btn-dark btn-menu">Pesan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. GALLERY SECTION ================= -->
+    <section id="gallery" class="section-padding bg-beige-section">
+        <div class="container text-center">
+            <h2 class="section-title">Sudut Estetik Atma</h2>
+            <p class="section-subtitle">Intip Atmosfer Nyaman Ruang Kami</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=600&auto=format&fit=crop" alt="Interior Kedai">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop" alt="Suasana Kerja">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="hal.jpeg" alt="Penyajian Kopi">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="bar.jpeg" alt="Camilan & Kopi">
+                    <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 7. TESTIMONIAL SECTION ================= -->
+    <section id="testi" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            <p class="section-subtitle">Cerita Kejujuran dari Pelanggan Setia</p>
+            
+            <div class="testi-grid">
+                <!-- Testi 1 -->
+                <div class="testi-card">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Tempat andalan kalau mau remote working. Kopinya (terutama Kusuma) juara banget wangi beneran, internet kencang dan kursinya gak bikin pegal bodi."</p>
+                    <div class="client-info">
+                        <h5>Andini Kirana</h5>
+                    </div>
+                </div>
+                <!-- Testi 2 -->
+                <div class="testi-card">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Baristanya ramah banget, diajak konsultasi manual brew asyik parah. Vibes kedaunya adem, natural, cocok buat healing sore hari sepulang ngantor."</p>
+                    <div class="client-info">
+                        <h5>Dimas Saputra</h5>
+                    </div>
+                </div>
+                <!-- Testi 3 -->
+                <div class="testi-card">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p>"Croissant butter dipadu Caramel Macchiatonya beneran surga dunia. Tiap sudut kedaunya estetik parah, feed Instagram saya jadi makin estetik!"</p>
+                    <div class="client-info">
+                        <h5>Rania Azzahra</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 8. CTA SECTION ================= -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Temukan Sudut Favoritmu<br>di ATMA KOFFIE</h2>
+            <p>Pintu kami selalu terbuka untuk menemani harimu bersama seduhan aroma kopi penuh ketenangan.</p>
+            <a href="#kontak" class="btn btn-gold">Kunjungi Sekarang</a>
+        </div>
+    </section>
+
+    <!-- ================= 9. FOOTER SECTION ================= -->
+    <footer id="kontak" class="footer">
+        <div class="container footer-grid">
+            <!-- Kolom Brand -->
+            <div class="footer-brand">
+                <h3>ATMA KOFFIE</h3>
+                <p>Menghadirkan rasa dari jiwa, menciptakan atmosfer ruang santai yang menginspirasi setiap hari.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/atmakoffie?igsh=ODFtdW91eWxydHhz" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@atma.koffie?_r=1&_t=ZS-97OodabIXQn" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/+62 882-8919-3831" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <!-- Kolom Navigasi Cepat -->
+            <div>
+                <h4 class="footer-heading">Navigasi</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#menu">Menu Andalan</a></li>
+                    <li><a href="#gallery">Galeri Estetik</a></li>
+                </ul>
+            </div>
+            <!-- Kolom Jam Operasional -->
+            <div>
+                <h4 class="footer-heading">Jam Buka</h4>
+                <ul class="footer-links" style="pointer-events: none;">
+                    <li><i class="fa-regular fa-clock" style="color:var(--accent-gold); margin-right:5px;"></i> Weekdays: 09.00 - 22.00</li>
+                    <li><i class="fa-regular fa-clock" style="color:var(--accent-gold); margin-right:5px;"></i> Weekend: 08.00 - 23.00</li>
+                    <li style="margin-top:15px; color: var(--white);"><strong>Alamat Kedai:</strong></li>
+                    <li>Jl. Senopati Raya No. 45, Kebayoran Baru, Jakarta Selatan</li>
+                </ul>
+            </div>
+            <!-- Kolom Google Maps Placeholder -->
+            <div>
+                <h4 class="footer-heading">Lokasi Peta</h4>
+                <div class="map-placeholder">
+                    <!-- Menggunakan Iframe Google Maps asli dengan filter kosmetik monokrom via CSS -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2733979434856!2d106.8041775757279!3d-6.227641260991913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f14dfa424b91%3A0x6e2f183701ee6382!2sKebayoran%20Baru%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ATMA KOFFIE Space. Seluruh Hak Cipta Dilindungi. Dikembangkan secara khusus.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
